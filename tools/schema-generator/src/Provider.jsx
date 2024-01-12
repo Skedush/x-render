@@ -1,6 +1,7 @@
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
 import copyTOClipboard from 'copy-text-to-clipboard';
+import { usePrevious } from './hooks';
 
 import {
   mapping as defaultMapping,
@@ -30,6 +31,7 @@ import { Ctx, StoreCtx } from './utils/context';
 import { useSet } from './utils/hooks';
 import { serializeToDraft } from './utils/serialize';
 import list from './widgets/list';
+import { isEqual } from 'lodash-es';
 
 const DEFAULT_SCHEMA = {
   type: 'object',
@@ -93,6 +95,18 @@ function Provider(props, ref) {
   }, [defaultValue]);
 
   const { formData, frProps, isNewVersion, preview, schema, selected } = state;
+
+  const prevFrProps = usePrevious(frProps);
+
+  useEffect(() => {
+    if (props.onSchemaChange && !isEqual(frProps, prevFrProps)) {
+      setTimeout(() => {
+        if (!frwRef.current) return;
+        const pureSchema = frwRef.current.getValue();
+        props.onSchemaChange(pureSchema);
+      }, 0);
+    }
+  }, [frProps]);
 
   const onChange = data => {
     setState({ formData: data });
