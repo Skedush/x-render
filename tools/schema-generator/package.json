@@ -1,6 +1,10 @@
 {
   "name": "zl-generator",
   "version": "1.0.5",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Skedush/x-render.git"
+  },
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
