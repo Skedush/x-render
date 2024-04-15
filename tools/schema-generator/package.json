@@ -1,9 +1,11 @@
 {
   "name": "zl-generator",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Skedush/x-render.git"
+    "url": "https://github.com/Skedush/x-render.git",
+    "branch": "dynamic-settings-fixed",
+    "platform": "github"
   },
   "license": "MIT",
   "main": "dist/index.js",

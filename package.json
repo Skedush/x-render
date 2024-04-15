@@ -4,8 +4,8 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alibaba/x-render.git",
-    "branch": "master",
+    "url": "https://github.com/Skedush/x-render.git",
+    "branch": "dynamic-settings-fixed",
     "platform": "github"
   },
   "workspaces": [
