@@ -14,7 +14,7 @@ const transformFrom = schema => {
         .map(item => item.value);
       schema.enumNames = schema.enumList
         .filter(item => item.value)
-        .map(item => item.label || item.value);
+        .map(item => item.value);
     }
     delete schema.enumList;
   } else {
